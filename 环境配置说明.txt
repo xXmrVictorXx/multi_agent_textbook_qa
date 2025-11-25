@@ -1,0 +1,74 @@
+================================
+环境变量配置说明
+================================
+
+请在项目根目录创建 .env 文件，并根据你使用的API服务选择相应配置：
+
+--------------------------------
+方案1：使用OpenAI官方API
+--------------------------------
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxx
+OPENAI_BASE_URL=https://api.openai.com/v1
+MODEL_NAME=gpt-3.5-turbo
+
+说明：
+- OPENAI_API_KEY: 你的OpenAI API密钥
+- MODEL_NAME: 可选 gpt-3.5-turbo 或 gpt-4
+
+--------------------------------
+方案2：使用阿里云通义千问
+--------------------------------
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxx
+OPENAI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+MODEL_NAME=qwen-turbo
+
+说明：
+- 需要在阿里云DashScope获取API密钥
+- MODEL_NAME可选: qwen-turbo, qwen-plus, qwen-max
+
+--------------------------------
+方案3：使用智谱AI (GLM)
+--------------------------------
+OPENAI_API_KEY=xxxxxxxxxxxxxxxxxxxxx
+OPENAI_BASE_URL=https://open.bigmodel.cn/api/paas/v4/
+MODEL_NAME=glm-4
+
+说明：
+- 需要在智谱AI开放平台获取API密钥
+- MODEL_NAME可选: glm-4, glm-3-turbo
+
+--------------------------------
+方案4：使用百度文心一言
+--------------------------------
+# 文心一言需要特殊配置，请参考百度千帆平台文档
+
+--------------------------------
+方案5：使用OpenAI兼容接口
+--------------------------------
+OPENAI_API_KEY=your_api_key
+OPENAI_BASE_URL=https://your-api-endpoint/v1
+MODEL_NAME=your_model_name
+
+说明：
+- 适用于任何提供OpenAI兼容接口的服务
+- 包括本地部署的模型（如Ollama、LocalAI等）
+
+================================
+获取API密钥的链接
+================================
+
+OpenAI: https://platform.openai.com/api-keys
+通义千问: https://dashscope.console.aliyun.com/
+智谱AI: https://open.bigmodel.cn/
+百度千帆: https://console.bce.baidu.com/qianfan/
+
+================================
+注意事项
+================================
+
+1. .env 文件不应该提交到版本控制系统
+2. 确保API密钥有足够的额度
+3. 某些API可能需要科学上网
+4. 建议先用较便宜的模型测试（如gpt-3.5-turbo）
+5. 如果遇到连接问题，检查OPENAI_BASE_URL是否正确
+
