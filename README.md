@@ -24,10 +24,10 @@ pip install -r requirements.txt
    - 支持OpenAI API
    - 支持国内大模型API（如通义千问、文心一言等）
 
-## 使用方法
+## 使用方法(需要输入一个参数——页数，否则只能默认读取前10页内容)
 
 ```bash
-python main.py
+python main.py 50
 ```
 
 ## 项目结构
