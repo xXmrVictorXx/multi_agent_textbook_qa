@@ -5,17 +5,34 @@ from dotenv import load_dotenv
 # 加载环境变量
 load_dotenv()
 
+"""
+
+Sample configuration in Dict form:
+{
+  "model_name":"qwen2.5:72b",
+  "config_name": "qwen",
+  "model_type": "openai_chat",
+  "api_key": "<api_key>",
+  "client_args": {
+    "base_url": "<base_url>"
+  },
+  "generate_args": {
+      "temperature": 0.5,
+      "stream": true,
+  }
+}
+
+"""
+
+
 
 class Config:
     """系统配置"""
     
     # API配置
-    OPENAI_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
-    OPENAI_BASE_URL = os.getenv("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
-    MODEL_NAME = os.getenv("MODEL_NAME", "qwen-turbo")
-    
-    # 如果没有配置OpenAI，可以使用其他模型
-    DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+    OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
+    MODEL_NAME = os.getenv("MODEL_NAME", "qwen3-max")
     
     # PDF路径配置
     PDF_PATH = "data/nndl-book.pdf"
@@ -63,9 +80,9 @@ class Config:
     @classmethod
     def validate(cls):
         """验证配置是否完整"""
-        if not cls.OPENAI_API_KEY and not cls.DASHSCOPE_API_KEY:
+        if not cls.OPENAI_API_KEY or not cls.OPENAI_API_KEY.strip():
             print("警告: 未配置API密钥，请创建.env文件并配置API密钥")
-            print("你可以配置 OPENAI_API_KEY 或 DASHSCOPE_API_KEY")
+            print("你可以配置 OPENAI_API_KEY")
             return False
         return True
 
