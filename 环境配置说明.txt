@@ -43,7 +43,7 @@ MODEL_NAME=glm-4
 # 文心一言需要特殊配置，请参考百度千帆平台文档
 
 --------------------------------
-方案5：使用OpenAI兼容接口
+方案5：使用OpenAI兼容接口 （推荐）
 --------------------------------
 OPENAI_API_KEY=your_api_key
 OPENAI_BASE_URL=https://your-api-endpoint/v1
